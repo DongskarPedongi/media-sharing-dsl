@@ -18,6 +18,11 @@ class User extends DatabaseConnector {
     def email
     def password
     
+    def get_id(username) {
+        def user = sql.rows("SELECT * FROM user WHERE user.username="+"\""+username+"\"")[0]
+        return user.id
+    }
+    
     def register(user) {
         
     }
@@ -27,7 +32,15 @@ class User extends DatabaseConnector {
     }
     
     def like(user_id, media_id) {
-        
+        def command = "INSERT INTO `like`(media_id, user_id, value) VALUES "+\
+                        "(${media_id}, ${user_id}, 1)"
+        try {
+            sql.execute(command);
+            println("Like succedded") 
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Like failed")
+        }
     }
     
     def unlike(user_id, media_id) {

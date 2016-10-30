@@ -6,11 +6,14 @@
 
 package media.sharing.dsl
 
+import java.sql.*; 
+import groovy.sql.Sql 
+
 /**
  *
  * @author Luqman A. Siswanto
  */
 class DatabaseConnector {
-    def sql = Sql.newInstance('jdbc:mysql://localhost:3306/media_sharing_dsl', '', '', 'com.mysql.jdbc.Driver')
+    def sql = Sql.newInstance('jdbc:mysql://localhost:3306/media_sharing_dsl', 'root', '', 'com.mysql.jdbc.Driver')
 }
 
