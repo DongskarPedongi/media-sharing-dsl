@@ -10,7 +10,26 @@ package media.sharing.dsl
  *
  * @author Luqman A. Siswanto
  */
-class Media {
-	
+class Media extends DatabaseConnector {
+    
+    def id
+    def uploader_id
+    def name
+    def date_added
+    def link
+    def likes
+    
+    def upload(uploader_id, name, link) {
+        
+    }
+    
+    def download(id) {
+        
+    }
+    
+    def get_likes(media_id) {
+        
+    }
+    
 }
 

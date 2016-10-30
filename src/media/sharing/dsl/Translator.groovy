@@ -10,29 +10,29 @@ package media.sharing.dsl
  *
  * @author Luqman A. Siswanto
  */
-class User extends DatabaseConnector {
-    
-    def id
-    def username
-    def name
-    def email
-    def password
-    
-    def register(user) {
+class Translator {
+    def sign(kentang) {
         
     }
     
-    def edit(user) {
+    def up = {
         
     }
     
-    def like(user_id, media_id) {
+    def like(media_id) {
         
     }
     
-    def unlike(user_id, media_id) {
+    def unlike(media_id) {
         
     }
     
+    def comment(text) {
+        
+    }
+    
+    def download(media_id) {
+        
+    }
 }
 
