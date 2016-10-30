@@ -13,10 +13,11 @@ package media.sharing.dsl
 
 // Load file Translator.groovy
 def script = new GroovyScriptEngine( '.' ).with {
-  loadScriptByName( 'src/media/sharing/dsl/Translator.groovy' )
-} 
+  loadScriptByName( 'Translator.groovy' )
+}
 this.metaClass.mixin script
 
 
 // Domain specific language
-like "semak-semak" by "rakina"
+//like "semak-semak" by "rakina"
+unlike "ITB.3gp" by "ical"

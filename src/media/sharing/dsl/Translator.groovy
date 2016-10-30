@@ -32,8 +32,12 @@ class Translator {
         }]        
     }
     
-    def unlike(media_id) {
-        
+    def unlike(media_name) {
+        [by: {username ->
+            def media_id = media.get_id(media_name)
+            def user_id = user.get_id(username)
+            user.unlike(user_id, media_id)
+        }]
     }
     
     def comment(text) {
