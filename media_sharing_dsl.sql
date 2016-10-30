@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2016 at 04:52 PM
+-- Generation Time: Oct 30, 2016 at 05:05 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -27,12 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `comment` (
-  `id` int(20) NOT NULL,
+`id` int(20) NOT NULL,
   `media_id` int(20) NOT NULL,
   `user_id` int(20) NOT NULL,
   `text` text NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `comment`
@@ -91,24 +91,30 @@ INSERT INTO `media` (`id`, `uploader_id`, `name`, `date_added`, `link`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(20) NOT NULL,
+`id` int(20) NOT NULL,
   `username` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `name`, `email`, `password`) VALUES
-(1, 'luqman', 'Luqman Arifin', 'luqman@traveloka.com', 'kentang'),
-(2, 'ical', 'Afrizal', 'ical@rakina.com', 'rakina48');
+(1, 'luqman', 'Luqman', 'luqman@traveloka.com', 'kentang'),
+(2, 'ical', 'ical', 'ical@icul.com', 'ical');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `media`
@@ -120,16 +126,26 @@ ALTER TABLE `media`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
 MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
