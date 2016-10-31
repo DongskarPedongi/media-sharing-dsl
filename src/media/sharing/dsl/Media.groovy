@@ -25,7 +25,15 @@ class Media extends DatabaseConnector {
     }
     
     def upload(uploader_id, name, link) {
-        
+        def command = "INSERT INTO media(uploader_id, name, link) VALUES "+\
+                        "(${uploader_id}, '${name}', '${link}')"
+        try {
+            sql.execute(command);
+            println("Upload succedded: "+name)
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Upload failed")
+        }
     }
     
     def download(id) {
@@ -33,7 +41,8 @@ class Media extends DatabaseConnector {
     }
     
     def get_likes(media_id) {
-        
+        def total_like = sql.rows("SELECT sum(value) FROM likes WHERE media.id="+media_id)[0]
+        return total_like
     }
 
     def like(user_id, media_id) {

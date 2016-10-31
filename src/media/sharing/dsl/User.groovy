@@ -19,7 +19,7 @@ class User extends DatabaseConnector {
     def password
     
     def get_id(username) {
-        def user = sql.rows("SELECT * FROM user WHERE user.username="+"\'"+username+"\'")[0]
+        def user = sql.rows("SELECT * FROM users WHERE users.username="+"\'"+username+"\'")[0]
         return user.id
     }
     
