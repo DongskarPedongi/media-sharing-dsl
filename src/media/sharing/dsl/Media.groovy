@@ -37,7 +37,7 @@ class Media extends DatabaseConnector {
     }
 
     def like(user_id, media_id) {
-        def command = "INSERT INTO like(media_id, user_id, value) VALUES "+\
+        def command = "INSERT INTO `like`(media_id, user_id, value) VALUES "+\
                         "(${media_id}, ${user_id}, 1)"
         try {
             sql.execute(command);
@@ -49,7 +49,7 @@ class Media extends DatabaseConnector {
     }
 
     def unlike(user_id, media_id) {
-        def command = "INSERT INTO like(media_id, user_id, value) VALUES "+\
+        def command = "INSERT INTO `like`(media_id, user_id, value) VALUES "+\
                         "(${media_id}, ${user_id}, -1)"
         try {
             sql.execute(command);

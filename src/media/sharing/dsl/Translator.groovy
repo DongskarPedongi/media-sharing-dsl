@@ -16,19 +16,31 @@ class Translator {
     def comment = new Comment()
     def user = new User()
     
-    def sign(kentang) {
-        
+    def sign(action) {
+        [username: {username -> 
+            [name: {name ->
+                [email: {email -> 
+                    [password: {password ->
+                        User user = new User(username: username,
+                                             name: name,
+                                             email: email,
+                                             password: password)
+                        action(user)
+                    }]
+                }]
+            }]
+        }]
     }
     
     def up = {
-        
+        user.register(it);
     }
     
     def like(media_name) {
         [by: {username ->
             def media_id = media.get_id(media_name)
             def user_id = user.get_id(username)
-            user.like(user_id, media_id)
+            media.like(user_id, media_id)
         }]
     }
     
@@ -36,7 +48,7 @@ class Translator {
         [by: {username ->
             def media_id = media.get_id(media_name)
             def user_id = user.get_id(username)
-            user.unlike(user_id, media_id)
+            media.unlike(user_id, media_id)
         }]
     }
     

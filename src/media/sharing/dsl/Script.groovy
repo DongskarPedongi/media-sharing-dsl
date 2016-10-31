@@ -13,7 +13,7 @@ package media.sharing.dsl
 
 // Load file Translator.groovy
 def script = new GroovyScriptEngine( '.' ).with {
-  loadScriptByName( 'Translator.groovy' )
+  loadScriptByName( 'src/media/sharing/dsl/Translator.groovy' )
 }
 this.metaClass.mixin script
 
@@ -21,4 +21,5 @@ this.metaClass.mixin script
 // Domain specific language
 //like "semak-semak" by "rakina"
 //unlike "ITB.3gp" by "ical"
-comment "mantab jiwaa" by "rakina" on "ITB.3gp"
+//comment "mantab jiwaa" by "rakina" on "ITB.3gp"
+sign up username "gazandic" name "Gazandi" email "gaz@ndi.com" password "bismillah"
