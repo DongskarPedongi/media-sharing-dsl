@@ -35,6 +35,30 @@ class Media extends DatabaseConnector {
     def get_likes(media_id) {
         
     }
+
+    def like(user_id, media_id) {
+        def command = "INSERT INTO like(media_id, user_id, value) VALUES "+\
+                        "(${media_id}, ${user_id}, 1)"
+        try {
+            sql.execute(command);
+            println("Like succedded")
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Like failed")
+        }
+    }
+
+    def unlike(user_id, media_id) {
+        def command = "INSERT INTO like(media_id, user_id, value) VALUES "+\
+                        "(${media_id}, ${user_id}, -1)"
+        try {
+            sql.execute(command);
+            println("Unlike succedded")
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Unlike failed")
+        }
+    }
     
 }
 

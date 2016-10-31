@@ -29,7 +29,7 @@ class Translator {
             def media_id = media.get_id(media_name)
             def user_id = user.get_id(username)
             user.like(user_id, media_id)
-        }]        
+        }]
     }
     
     def unlike(media_name) {
@@ -41,7 +41,15 @@ class Translator {
     }
     
     def comment(text) {
-        
+        [by: {username ->
+            [on: {media_name ->
+                def now = new Date()
+                def timestamp = now.toTimestamp()
+                def media_id = media.get_id(media_name)
+                def user_id = user.get_id(username)
+                comment.add(media_id, user_id, text, timestamp)
+            }]
+        }]
     }
     
     def download(media_id) {

@@ -20,4 +20,5 @@ this.metaClass.mixin script
 
 // Domain specific language
 //like "semak-semak" by "rakina"
-unlike "ITB.3gp" by "ical"
+//unlike "ITB.3gp" by "ical"
+comment "mantab jiwaa" by "rakina" on "ITB.3gp"

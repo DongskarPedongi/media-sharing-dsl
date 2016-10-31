@@ -19,7 +19,15 @@ class Comment extends DatabaseConnector {
     def date
     
     def add(media_id, user_id, text, date) {
-        
+        def command = "INSERT INTO comment(media_id, user_id, text, date) VALUES "+\
+                        "(${media_id}, ${user_id}, '${text}', '${date}')"
+        try {
+            sql.execute(command);
+            println("Comment succedded: " + text);
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Comment failed")
+        }
     }
     
     def get_comment_from_media(media_id) {
