@@ -64,8 +64,11 @@ class Translator {
         }]
     }
     
-    def download(media_id) {
-        
+    def download(media_name) {
+        [by: {username ->
+            def media = media.get_media(media_name)
+            println "$username starts download $media.name at $media.link"
+        }]
     }
 }
 

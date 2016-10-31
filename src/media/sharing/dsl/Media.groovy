@@ -19,6 +19,10 @@ class Media extends DatabaseConnector {
     def link
     def likes
     
+    def get_media(name) {
+        return sql.rows("SELECT * FROM media WHERE media.name="+"\'"+name+"\'")[0]
+    }
+    
     def get_id(name) {
         def media = sql.rows("SELECT * FROM media WHERE media.name="+"\'"+name+"\'")[0]
         return media.id
