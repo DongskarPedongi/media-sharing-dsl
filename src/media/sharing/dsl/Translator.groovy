@@ -16,12 +16,24 @@ class Translator {
     def comment = new Comment()
     def user = new User()
     
-    def sign(kentang) {
-        
+    def sign(action) {
+        [username: {username -> 
+            [name: {name ->
+                [email: {email -> 
+                    [password: {password ->
+                        User user = new User(username: username,
+                                             name: name,
+                                             email: email,
+                                             password: password)
+                        action(user)
+                    }]
+                }]
+            }]
+        }]
     }
     
     def up = {
-        
+        user.register(it);
     }
     
     def like(media_name) {
@@ -70,8 +82,11 @@ class Translator {
         }]
     }
     
-    def download(media_id) {
-        
+    def download(media_name) {
+        [by: {username ->
+            def media = media.get_media(media_name)
+            println "$username starts download $media.name at $media.link"
+        }]
     }
 }
 

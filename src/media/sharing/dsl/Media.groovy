@@ -19,6 +19,10 @@ class Media extends DatabaseConnector {
     def link
     def likes
     
+    def get_media(name) {
+        return sql.rows("SELECT * FROM media WHERE media.name="+"\'"+name+"\'")[0]
+    }
+    
     def get_id(name) {
         def media = sql.rows("SELECT * FROM media WHERE media.name="+"\'"+name+"\'")[0]
         return media.id
@@ -46,7 +50,7 @@ class Media extends DatabaseConnector {
     }
 
     def like(user_id, media_id) {
-        def command = "INSERT INTO like(media_id, user_id, value) VALUES "+\
+        def command = "INSERT INTO `like`(media_id, user_id, value) VALUES "+\
                         "(${media_id}, ${user_id}, 1)"
         try {
             sql.execute(command);
@@ -58,7 +62,7 @@ class Media extends DatabaseConnector {
     }
 
     def unlike(user_id, media_id) {
-        def command = "INSERT INTO like(media_id, user_id, value) VALUES "+\
+        def command = "INSERT INTO `like`(media_id, user_id, value) VALUES "+\
                         "(${media_id}, ${user_id}, -1)"
         try {
             sql.execute(command);

@@ -24,7 +24,15 @@ class User extends DatabaseConnector {
     }
     
     def register(user) {
-
+        def command = "INSERT INTO `user`(username, name, email, password) VALUES "+\
+                        "('${user.username}', '${user.name}', '${user.email}', '${user.password}')"
+        try {
+            sql.execute(command);
+            println("Register succedded")
+        } catch(Exception ex) {
+            sql.rollback()
+            println("Register failed")
+        }
     }
     
     def edit(user) {
