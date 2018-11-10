@@ -13,16 +13,17 @@ package media.sharing.dsl
 
 // Load file Translator.groovy
 def script = new GroovyScriptEngine( '.' ).with {
-  loadScriptByName( 'src/media/sharing/dsl/Translator.groovy' )
+  loadScriptByName( 'src/main/groovy/media/sharing/dsl/Translator.groovy' )
 }
 this.metaClass.mixin script
 
 
 // Domain specific language
-upload "hentaibox" by "luqman" from "hentaibox.net"
-//show like from "ITB.3gp"
-like "semak-semak" by "rakina"
-unlike "ITB.3gp" by "ical"
-comment "mantab jiwaa" by "rakina" on "ITB.3gp"
-sign up username "gazandic" name "Gazandi" email "gaz@ndi.com" password "bismillah"
-download "ITB.3gp" by "ical"
+
+//upload "hentaibox" by "gazandic" from "hentaibox.net"
+////show like from "ITB.3gp"
+//like "semak-semak" by "rakina"
+//unlike "ITB.3gp" by "ical"
+//comment "mantab jiwaa" by "rakina" on "ITB.3gp"
+//sign up username "gazandic" name "Gazandi" email "gaz@ndi.com" password "bismillah"
+download "hentaibox" by "gazandic"

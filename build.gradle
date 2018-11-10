@@ -1,0 +1,25 @@
+buildscript {
+    dependencies {
+        classpath 'org.postgresql:postgresql:42.2.5'
+    }
+}
+
+plugins {
+    id "org.flywaydb.flyway" version "5.2.1"
+}
+
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'javax.persistence:persistence-api:1.0.2'
+    implementation 'org.hibernate:hibernate-core:4.2.21.Final'
+    implementation 'org.hibernate:hibernate-tools:4.3.2.Final'
+    implementation 'org.hibernate:hibernate-jpa-2.1-api:1.0.0.Final'
+    implementation 'org.codehaus.groovy:groovy-all:2.4.5'
+    implementation 'org.postgresql:postgresql:42.2.5'
+    testCompile 'junit:junit:4.12'
+}

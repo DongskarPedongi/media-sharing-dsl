@@ -6,15 +6,16 @@
 
 package media.sharing.dsl
 
+import media.sharing.data.model.User
+
 /**
  *
  * @author Luqman A. Siswanto
  */
 class Translator {
-    
-    def media = new Media()
-    def comment = new Comment()
-    def user = new User()
+    def media = new MediaProcessor()
+    def comment = new CommentProcessor()
+    def user = new UserProcessor()
     
     def sign(action) {
         [username: {username -> 
